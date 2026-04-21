@@ -23,6 +23,10 @@ jobs:
       - name: Compiler le projet Angular
         run: npx ng build --configuration production --base-href /
 
+      - name: Fixer le routage (Copie vers 404.html)
+      # Remplace ./dist/portfolio par le même chemin que tu utilises dans publish_dir !
+        run: cp ./dist/portfolio/index.html ./dist/portfolio/404.html
+
       - name: Déployer sur GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
