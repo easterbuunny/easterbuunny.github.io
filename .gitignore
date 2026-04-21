@@ -41,3 +41,6 @@ testem.log
 .DS_Store
 Thumbs.db
 .editorconfig
+.github/workflow/deploy.yml
+SSH_KEY.pub
+SSH_KEY
