@@ -11,5 +11,5 @@ import { NavbarComponent } from './common/navbar/navbar.component';
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
-  title = 'PORTFOLIO';
+  title = 'Laura Yan';
 }

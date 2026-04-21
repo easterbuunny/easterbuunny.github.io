@@ -22,10 +22,10 @@ jobs:
 
       - name: Compiler le projet Angular
         # Remplace 'nom-de-ton-repo' par le nom exact de ton dépôt GitHub
-        run: npx ng build --configuration production --base-href /nom-de-ton-repo/
+        run: npx ng build --configuration production --base-href /easterbuunny.github.io/
 
       - name: Déployer sur GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist/nom-de-ton-projet # Remplace par le nom du dossier généré dans 'dist'
+          publish_dir: ./dist/portfolio # Remplace par le nom du dossier généré dans 'dist'
