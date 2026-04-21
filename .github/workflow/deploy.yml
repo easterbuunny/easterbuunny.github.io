@@ -1,0 +1,31 @@
+name: Déploiement du Portfolio Angular
+
+on:
+  push:
+    branches:
+      - main # ou 'master', selon le nom de ta branche principale
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Récupérer le code
+        uses: actions/checkout@v3
+
+      - name: Configurer Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '12' # Utilise la version de Node.js compatible avec ton Angular
+
+      - name: Installer les dépendances
+        run: npm ci
+
+      - name: Compiler le projet Angular
+        # Remplace 'nom-de-ton-repo' par le nom exact de ton dépôt GitHub
+        run: npx ng build --configuration production --base-href /nom-de-ton-repo/
+
+      - name: Déployer sur GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist/nom-de-ton-projet # Remplace par le nom du dossier généré dans 'dist'
