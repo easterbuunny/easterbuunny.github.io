@@ -1,3 +1,30 @@
+# Portfolio - Développeur JavaEE & Angular
+
+![Angular](https://img.shields.io/badge/angular-%23DD0031.svg?style=for-the-badge&logo=angular&logoColor=white)
+![Java](https://img.shields.io/badge/java-%23ED8B00.svg?style=for-the-badge&logo=openjdk&logoColor=white)
+![GitHub Actions](https://img.shields.io/badge/github%20actions-%232671E5.svg?style=for-the-badge&logo=githubactions&logoColor=white)
+
+[![CI - Qualité & Sécurité](https://github.com/easterbuunny/easterbuunny.github.io/actions/workflows/ci.yml/badge.svg)](https://github.com/easterbuunny/easterbuunny.github.io/actions/workflows/ci.yml)
+[![Déploiement Portfolio](https://github.com/easterbuunny/easterbuunny.github.io/actions/workflows/deploy.yml/badge.svg)](https://github.com/easterbuunny/easterbuunny.github.io/actions/workflows/deploy.yml)
+
+
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=easterbuunny_portfolio&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=easterbuunny_easterbuunny.github.io)
+[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=easterbuunny_portfolio&metric=coverage)](https://sonarcloud.io/summary/new_code?id=easterbuunny_easterbuunny.github.io)
+[![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=easterbuunny_portfolio&metric=reliability_rating)](https://sonarcloud.io/summary/new_code?id=easterbuunny_easterbuunny.github.io)
+
+---
+
+## 🚀 Déploiement
+
+Ce portfolio est déployé automatiquement via GitHub Pages : **[Visiter le Portfolio](https://easterbuunny.github.io/)**
+
+## 🛠️ Architecture DevSecOps
+
+Ce dépôt implémente une architecture CI/CD stricte :
+1. **Intégration Continue (CI)** : À chaque Pull Request, le code est analysé par **SonarCloud** (Qualité) et **CodeQL** (Sécurité SAST).
+2. **Déploiement Continu (CD)** : Lors d'un push sur `main`, l'application Angular est compilée et déployée sur GitHub Pages.
+
+
 # Profil
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.5.
