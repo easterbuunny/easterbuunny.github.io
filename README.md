@@ -8,9 +8,9 @@
 [![Déploiement Portfolio](https://github.com/easterbuunny/easterbuunny.github.io/actions/workflows/deploy.yml/badge.svg)](https://github.com/easterbuunny/easterbuunny.github.io/actions/workflows/deploy.yml)
 
 
-[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=easterbuunny_portfolio&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=easterbuunny_easterbuunny.github.io)
-[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=easterbuunny_portfolio&metric=coverage)](https://sonarcloud.io/summary/new_code?id=easterbuunny_easterbuunny.github.io)
-[![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=easterbuunny_portfolio&metric=reliability_rating)](https://sonarcloud.io/summary/new_code?id=easterbuunny_easterbuunny.github.io)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=easterbuunny_easterbuunny.github.io&metric=alert_status)](https://sonarcloud.io/summary/new_code?id=easterbuunny_easterbuunny.github.io)
+[![Coverage](https://sonarcloud.io/api/project_badges/measure?project=easterbuunny_easterbuunny.github.io&metric=coverage)](https://sonarcloud.io/summary/new_code?id=easterbuunny_easterbuunny.github.io)
+[![Reliability Rating](https://sonarcloud.io/api/project_badges/measure?project=easterbuunny_easterbuunny.github.io&metric=reliability_rating)](https://sonarcloud.io/summary/new_code?id=easterbuunny_easterbuunny.github.io)
 
 ---
 
@@ -21,7 +21,7 @@ Ce portfolio est déployé automatiquement via GitHub Pages : **[Visiter le Port
 ## 🛠️ Architecture DevSecOps
 
 Ce dépôt implémente une architecture CI/CD stricte :
-1. **Intégration Continue (CI)** : À chaque Pull Request, le code est analysé par **SonarCloud** (Qualité) et **CodeQL** (Sécurité SAST).
+1. **Intégration Continue (CI)** : À chaque Pull Request et push , le code est analysé par **SonarCloud** (Qualité) et **CodeQL** (Sécurité SAST).
 2. **Déploiement Continu (CD)** : Lors d'un push sur `main`, l'application Angular est compilée et déployée sur GitHub Pages.
 
 
