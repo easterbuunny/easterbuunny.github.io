@@ -2,9 +2,9 @@ name: CI - Code Quality & Security
 
 on:
   pull_request:
-    branches: [ "main" ]
+    branches: [ "main", "develop" ]
   push:
-    branches: [ "main" ]
+    branches: [ "main", "develop" ]
 
 jobs:
   # ----------------------------------------------------
@@ -20,7 +20,7 @@ jobs:
           fetch-depth: 0 # Historique complet nécessaire pour Sonar
 
       - name: Analyse SonarCloud
-        uses: SonarSource/sonarcloud-github-action@master
+        uses: SonarSource/sonarcloud-github-action@v3
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
