@@ -1,0 +1,50 @@
+<div class="text-center p-4 bg-light rounded border">
+
+  <h4 class="mb-4">Démonstration : Machine à états</h4>
+
+  <div class="fs-2 fw-bold mb-4" [ngClass]="{
+      'text-danger': currentState === 'Error',
+      'text-success': currentState === 'Start',
+      'text-secondary': currentState === 'Stop',
+    }">
+    Etat actuel : {{ currentState }}
+  </div>
+
+  <div class="d-flex justify-content-center gap-3">
+    <button class="btn btn-success" [disabled]="currentState !== 'Stop'" (click)="toStart()">
+      Start
+    </button>
+    <button class="btn btn-warning" [disabled]="currentState !== 'Start'" (click)="toFail()">
+      Erreur
+    </button>
+    <button class="btn btn-danger" (click)="toStop()">
+      Stop
+    </button>
+  </div>
+
+  <div class="mt-3">
+    <div class="d-flex justify-content-between align-items-center mb-2">
+      <h6 class="mb-0 text-muted fw-bold">CONSOLE SYSTEME</h6>
+      @if (history.length > 0) {
+      <button class="btn btn-sm btn-outline-secondary py-0" (click)="cleanLog()">clean</button>
+      }
+    </div>
+    <div class="bg-dark text-light p-3 rounded"
+      style="max-height: 200px; overflow-y: auto; font-family: monospace; font-size: 0.9rem;">
+      <ul class="list-unstyled mb-0">
+        @for (log of history; track log.hour) {
+        <li class="mb-1 border-bottom border-secondary pb-1">
+          <span class="text-info">
+            &rarr;<span [ngClass]="{
+                  'text-danger': log.newState === 'Error',
+                  'text-success': log.newState === 'Start',
+                  'text-secondary': log.newState === 'Stop',
+                }">[{{log.hour | date:'HH:mm:ss'}}] - {{log.action}} = {{log.newState}}</span>
+          </span>
+        </li>
+        } @empty {
+          <li class="text-secondary fst-italic">> En attente d'instructions...</li>
+        }
+      </ul>
+    </div>
+  </div>
