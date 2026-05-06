@@ -8,6 +8,8 @@ interface LogEntry{
   newState: string;
 }
 
+type EtatAutomate = 'Marche'| 'Arret'| 'En cours'| 'Erreur';
+
 @Component({
   selector: 'app-automate-simulator',
   standalone: true,
@@ -16,34 +18,43 @@ interface LogEntry{
   styleUrl: './automate-simulator.component.scss'
 })
 export class AutomateSimulatorComponent implements OnInit{
-  currentState: 'Start'| 'Stop'| 'Error' = 'Stop' ;
 
   history: LogEntry[] = [];
+  currentState : EtatAutomate  = "Arret";
+  isDarkMode:boolean = false;
 
   @Input({ required: true }) projet!: Projet;
 
   ngOnInit(): void {
-      this.currentState = 'Stop';
+      this.currentState = 'Arret';
+      this.isDarkMode = false;
+
       console.log("Bienvenu dans le projet : ", this.projet.titre);
   }
 
   toStart(){
-    if (this.currentState==='Stop') {
-      this.currentState = 'Start';
-      this.addLog("Start button is enable", this.currentState);
-    } else {
-      this.addLog("Start button is already enable", this.currentState);
+    if (this.currentState==='Arret') {
+      this.currentState = 'En cours';
+      this.addLog("En cours de démarrage", this.currentState);
+
+      setTimeout(() => {
+        if(this.currentState==='En cours') {
+          this.currentState = "Marche";
+          this.addLog("Démarrage", this.currentState);
+
+        }
+      }, 2000)
     }
   }
 
   toFail(){
-    this.currentState = 'Error';
-    this.addLog("Error button is enable", this.currentState);
+    this.currentState = 'Erreur';
+    this.addLog("Similation d'erreur", this.currentState);
   }
 
   toStop(){
-    this.currentState = 'Stop';
-    this.addLog("Stop button is enable", this.currentState);
+    this.currentState = 'Arret';
+    this.addLog("Arrêté", this.currentState);
   }
 
   private addLog(action: string, state: typeof this.currentState) {
@@ -56,5 +67,9 @@ export class AutomateSimulatorComponent implements OnInit{
 
   cleanLog() {
     this.history = [];
+  }
+
+  toggleTheme():void {
+    this.isDarkMode = !this.isDarkMode;
   }
 }

@@ -1,34 +1,52 @@
-<div class="text-center p-4 bg-light rounded border">
+<div class="text-center p-4 bg-light rounded border"
+  [ngClass]="isDarkMode?'bg-dark text-light border-secondary': 'bg-white text-dark'">
 
-  <h4 class="mb-4">Démonstration : Machine à états</h4>
+<!-- Toggle -->
+  <div class="form-check form-switch">
+    <input class="form-check-input" type="checkbox" id="themeSwitch" [checked]="isDarkMode" (change)="toggleTheme()">
+    <label class="form-check-label" for="themeSwitch">
+      {{ isDarkMode ? '🌙 Mode Sombre' : '☀️ Mode Clair' }}
+    </label>
+  </div>
+<!-- Titre d'application -->
+  <h4 class="mb-4">Démonstration : {{
+    projet.titre }}</h4>
 
+<!-- Texte d'état -->
   <div class="fs-2 fw-bold mb-4" [ngClass]="{
-      'text-danger': currentState === 'Error',
-      'text-success': currentState === 'Start',
-      'text-secondary': currentState === 'Stop',
+      'text-danger': currentState === 'Erreur',
+      'text-success': currentState === 'Marche',
+      'text-warning': currentState === 'En cours',
+      'text-secondary': currentState === 'Arret' || !isDarkMode,
+      'text-light': isDarkMode
     }">
     Etat actuel : {{ currentState }}
   </div>
 
+  <!-- Bouton d'état -->
   <div class="d-flex justify-content-center gap-3">
-    <button class="btn btn-success" [disabled]="currentState !== 'Stop'" (click)="toStart()">
-      Start
+    <button class="btn btn-success" [disabled]="currentState !== 'Arret'" (click)="toStart()">
+      Marche
     </button>
-    <button class="btn btn-warning" [disabled]="currentState !== 'Start'" (click)="toFail()">
+    <button class="btn btn-warning" [disabled]="currentState !== 'Marche'" (click)="toFail()">
       Erreur
     </button>
-    <button class="btn btn-danger" (click)="toStop()">
-      Stop
+    <button class="btn btn-danger" [disabled]="currentState === 'Arret'" (click)="toStop()">
+      Arret
     </button>
   </div>
 
   <div class="mt-3">
+    <!-- Titre de la console -->
     <div class="d-flex justify-content-between align-items-center mb-2">
-      <h6 class="mb-0 text-muted fw-bold">CONSOLE SYSTEME</h6>
+      <h6 class="mb-0 fw-bold"
+      [ngClass]="isDarkMode?'text-light border-secondary': 'bg-white text-dark'"
+      >CONSOLE SYSTEME</h6>
       @if (history.length > 0) {
       <button class="btn btn-sm btn-outline-secondary py-0" (click)="cleanLog()">clean</button>
       }
     </div>
+    <!-- Console de log -->
     <div class="bg-dark text-light p-3 rounded"
       style="max-height: 200px; overflow-y: auto; font-family: monospace; font-size: 0.9rem;">
       <ul class="list-unstyled mb-0">
@@ -36,15 +54,17 @@
         <li class="mb-1 border-bottom border-secondary pb-1">
           <span class="text-info">
             &rarr;<span [ngClass]="{
-                  'text-danger': log.newState === 'Error',
-                  'text-success': log.newState === 'Start',
-                  'text-secondary': log.newState === 'Stop',
+                  'text-danger': log.newState === 'Erreur',
+                  'text-success': log.newState === 'Marche',
+                  'text-warning': log.newState === 'En cours',
+                  'text-secondary': log.newState === 'Arret'
                 }">[{{log.hour | date:'HH:mm:ss'}}] - {{log.action}} = {{log.newState}}</span>
           </span>
         </li>
         } @empty {
-          <li class="text-secondary fst-italic">> En attente d'instructions...</li>
+        <li class="text-secondary fst-italic">> En attente d'instructions...</li>
         }
       </ul>
     </div>
   </div>
+</div>
