@@ -4,11 +4,12 @@ import { ProjetService } from '../services/projet.service';
 import { Projet } from '../models/projet.model';
 import { Observable } from 'rxjs';
 import { AutomateSimulatorComponent } from './automate-simulator/automate-simulator.component';
+import { ApiSimulatorComponent } from './api-simulator/api-simulator.component';
 
 @Component({
   selector: 'app-projets',
   standalone: true,
-  imports: [CommonModule, AutomateSimulatorComponent],
+  imports: [CommonModule, AutomateSimulatorComponent, ApiSimulatorComponent],
   templateUrl: './projets.component.html',
   styleUrl: './projets.component.scss'
 })

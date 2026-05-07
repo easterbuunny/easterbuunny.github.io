@@ -1,0 +1,74 @@
+<div class="p-4 rounded border shadow-sm transition-theme"
+  [ngClass]="isDarkMode ? 'bg-dark text-light border-secondary' : 'bg-white text-dark'">
+
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <div class="form-check form-switch">
+      <input class="form-check-input" type="checkbox" id="themeSwitchApi" [checked]="isDarkMode"
+        (change)="toggleTheme()">
+      <label class="form-check-label" for="themeSwitchApi">Mode Terminal</label>
+    </div>
+  </div>
+
+  <h4 class="mb-2">Client API REST : {{ projet.titre }}</h4>
+  <p class="text-muted small mb-4">Technologies : {{projet.technologies?.join(', ') }}</p>
+  <div class="row">
+    <div class="col-md-4 mb-3">
+      <div class="list-group">
+        @for (endpoint of endpoints; track endpoint.url) {
+        <button type="button" class="list-group-item list-group-item-action d-flex align-items-center gap-2"
+          [class.active]="activeEndpoint === endpoint"
+          [ngClass]="{'bg-dark text-light border-secondary': isDarkMode && activeEndpoint !== endpoint}"
+          (click)="selectEndpoint(endpoint)" ;>
+          <span class="badge" [ngClass]="endpoint.method === 'GET' ? 'bg-success' : 'bg-warning text-dark'">
+            {{ endpoint.method }}
+          </span>
+          <small class="text-truncate">{{ endpoint.url }}</small>
+        </button>
+        }
+      </div>
+    </div>
+
+    <div class="col-md-8">
+      <div class="card h-100" [ngClass]="isDarkMode ? 'bg-secondary text-light border-0' : 'bg-light'">
+        <div class="card-body">
+          <h6 class="card-title">{{ activeEndpoint.desc }}</h6>
+          <div class="input-group mb-3 mt-3">
+            <span class="input-group-text fw-bold"
+              [ngClass]="activeEndpoint.method === 'GET' ? 'text-success' : 'text-warning'">
+              {{ activeEndpoint.method }}
+            </span>
+            <input type="text" class="form-control" [value]="'http://localhost:8080' + activeEndpoint.url" readonly>
+            <button class="btn btn-dark" [disabled]="isLoading" (click)="sendRequest()">
+              @if (isLoading){
+              <span class="spinner-border spinner-border-sm me-2" role="status"></span>
+              }
+              Envoyer
+            </button>
+          </div>
+          <div class="mt-4">
+            <div class="d-flex justify-content-between align-items-end mb-2">
+              <span class="fw-bold">Statut du serveur :</span>
+              @if (statusCode) {
+              <span class="badge" [ngClass]="statusCode===200 || statusCode===201 ? 'bg-success' : 'bg-danger'">
+                {{ statusCode}}
+              </span>
+              }
+            </div>
+            <div class="mt-4">
+              <div class="d-flex justify-content-between align-items-end mb-2">
+                <span class="fw-bold">Réponse du serveur :</span>
+                @if (isLoading) {
+                <span class="text-muted fst-italic">En attente de localhost:8080...</span>
+                } @else if (jsonResponse) {
+                <pre class="mb-0" [ngClass]="isDarkMode ? 'text-success' : ''">{{ jsonResponse | json }}</pre>
+                } @else {
+                <span class="text-muted">Aucune requête envoyée.</span>
+                }
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

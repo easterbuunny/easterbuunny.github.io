@@ -3,6 +3,7 @@ export interface Projet {
   titre: string;
   description: string;
   technologies: string[];
-  type: 'frontend' | 'backend' | 'fullstack';
+  application: 'frontend' | 'backend' | 'fullstack';
+  type: 'universite' | 'personnel' | 'example';
   lienGithub?: string;
 }

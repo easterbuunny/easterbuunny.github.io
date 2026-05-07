@@ -4,15 +4,26 @@ export const PROJETS: Projet[] = [
   {
     id: 1,
     titre: 'Gestionnaire de Bibliothèque',
-    description: 'Projet universitaire JavaEE. Conception d\'une API REST pour gérer les emprunts et les retours de livres.',
-    technologies: ['JavaEE', 'JAX-RS', 'MySQL'],
-    type: 'backend'
+    description: 'Exemple 1 :  Conception d\'une API REST pour et créer des requêts pour chercher des objets sur le site.',
+    technologies: ['Angular', 'TypeScript'],
+    application: 'backend',
+    type:'example'
+
   },
   {
     id: 2,
     titre: 'Simulateur d\'Automates',
-    description: 'Projet d\'algorithmique. Interface visuelle permettant de dessiner et tester des machines à états finis.',
+    description: 'Exemple 2 : Interface visuelle permettant de dessiner et tester des machines à états finis.',
     technologies: ['Angular', 'TypeScript', 'Bootstrap'],
-    type: 'frontend'
-  }
+    application: 'frontend',
+    type: 'example'
+  },
+  {
+    id: 3,
+    titre: 'Projet Interface Graphique',
+    description: 'Projet universitaire Java. Le principe est jeu de plombier et de mettre le bon chemin dans la grille.',
+    technologies: ['Java', 'Swing', 'MySQL'],
+    application: 'backend',
+    type: 'universite'
+  },
 ];
