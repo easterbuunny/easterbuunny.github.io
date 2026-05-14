@@ -13,6 +13,7 @@ yarn-error.log
 
 # Backend
 */target/
+*/webswing-server
 
 # IDEs and editors
 .idea/
