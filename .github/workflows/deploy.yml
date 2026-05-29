@@ -24,7 +24,7 @@ jobs:
         run: npm ci
 
       - name: Compiler le projet Angular
-        run: npx ng build --configuration production --base-href /
+        run: npx ng build --configuration production --base-href /#/home
 
       - name: Fixer le routage (Copie vers 404.html)
         run: cp ./dist/portfolio/browser/index.html ./dist/portfolio/browser/404.html
@@ -33,4 +33,4 @@ jobs:
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./dist/portfolio/browser
+          publish_dir: ./frontend/dist/portfolio/browser
