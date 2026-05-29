@@ -1,0 +1,69 @@
+<div class="container mt-5">
+  @if(!projetActif){
+  <div class="row mb-4">
+    <div class="col-12">
+      <h2 class="fw-bold">Mes Projets Universitaires</h2>
+      <p class="text-muted">Découvrez mes réalisations techniques. Les versions interactives sont en cours de développement.</p>
+    </div>
+  </div>
+
+  <div class="row g-4">
+    @for (projet of projets$ | async; track projet.id) {
+      <div class="col-12 col-md-6 col-lg-4">
+        <div class="card h-100 shadow-sm border-0 bg-light">
+          <div class="card-body">
+            <div class="d-flex justify-content-between align-items-center mb-2">
+              <h5 class="card-title fw-bold mb-0">{{ projet.titre }}</h5>
+              <span class="badge"
+                    [ngClass]="projet.type === 'backend' ? 'bg-danger' : 'bg-success'">
+                {{ projet.type | uppercase }}
+              </span>
+            </div>
+            <p class="card-text">{{ projet.description }}</p>
+            <div class="mb-3">
+              @for (tech of projet.technologies; track tech) {
+                <span class="badge bg-secondary me-1 mb-1">{{ tech }}</span>
+              }
+            </div>
+          </div>
+          <div class="card-footer bg-transparent border-0 pt-0">
+            <button class="btn btn-outline-primary w-100" (click)="runDemo(projet)">
+              Tester l'application
+            </button>
+          </div>
+        </div>
+      </div>
+    }
+  </div>
+}
+@else {
+  <button class="btn btn-secondary mb-4 shadow-sm" (click)="stopDemo()">&larr; Retour</button>
+  <div class="card shadow border-0">
+      <div class="card-header bg-primary text-white py-3">
+        <h4 class="mb-0">Laboratoire interactif : {{ projetActif.titre }}</h4>
+        <p class="card-text">{{ projetActif.description }}</p>
+            <div class="mb-3">
+              @for (tech of projetActif.technologies; track tech) {
+                <span class="badge bg-secondary me-1 mb-1">{{ tech }}</span>
+              }
+            </div>
+
+      </div>
+      <div class="card-body p-4">
+
+        @if (projetActif.id === 2) {
+          <app-automate-simulator
+            [projet]="projetActif"
+          ></app-automate-simulator>
+        } @else {
+          <div class="alert alert-info text-center py-5">
+            <i class="fs-1 mb-3">🛠️</i>
+            <h5>En cours de construction</h5>
+            <p class="mb-0">La version interactive de l'API JavaEE arrivera bientôt !</p>
+          </div>
+        }
+
+      </div>
+    </div>
+  }
+</div>
