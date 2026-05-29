@@ -16,4 +16,5 @@ public class ProjetDTO {
   private List<String> technologies;
   private String application;
   private String type;
+  private String sourceUrl;
 }

@@ -1,16 +1,19 @@
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
+import { Observable } from 'rxjs';
 import { Projet } from '../models/projet.model';
-import { PROJETS } from '../data/mock-projets';
+import { HttpClient } from '@angular/common/http';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProjetService {
 
-  constructor() { }
+  private readonly apiUrl = `${environment.apiUrl}/api/projets`;
+
+  constructor(private http : HttpClient) { }
 
   getProjets(): Observable<Projet[]> {
-    return of(PROJETS);
+    return this.http.get<Projet[]>(this.apiUrl);
   }
 }
