@@ -1,1 +1,58 @@
-<p>experiences works!</p>
+<div class="container mt-5 mb-5">
+
+  <div class="row mb-5">
+    <div class="col-12">
+      <h2 class="fw-bold">Mon Expérience</h2>
+      <p class="text-muted">Un aperçu de mon parcours professionnel et de ma formation.</p>
+    </div>
+  </div>
+
+  <div class="timeline">
+    @for (exp of experiences; track exp.id) {
+    <div class="timeline-item">
+      <div class="timeline-marker"></div>
+
+      <div class="card shadow-sm border-0 bg-light timeline-card">
+        <div class="card-body">
+
+          <div class="d-flex justify-content-between align-items-start flex-wrap gap-2 mb-2">
+            <div>
+              <h5 class="card-title fw-bold mb-1">{{ exp.poste }}</h5>
+              <h6 class="card-subtitle text-muted mb-0">
+                {{ exp.entreprise }}
+                @if (exp.lieu) {
+                <span class="mx-1">&middot;</span>{{ exp.client }}
+                <span class="mx-1">&middot;</span>{{ exp.lieu }}
+                }
+              </h6>
+            </div>
+            <span class="badge" [ngClass]="badgeClass(exp.type)">{{ badgeLabel(exp.type) }}</span>
+          </div>
+
+          <p class="text-secondary small mb-3">
+            {{ exp.dateDebut }} &rarr; {{ exp.dateFin || 'En cours' }}
+          </p>
+
+          <p class="card-text">{{ exp.description }}</p>
+
+          @if (exp.missions && exp.missions.length > 0) {
+          <ul class="mb-3">
+            @for (mission of exp.missions; track mission) {
+            <li>{{ mission }}</li>
+            }
+          </ul>
+          }
+
+          <div>
+            @for (tech of exp.technologies; track tech) {
+            <span class="badge bg-secondary me-1 mb-1">{{ tech }}</span>
+            }
+          </div>
+
+        </div>
+      </div>
+    </div>
+    }
+  </div>
+
+</div>

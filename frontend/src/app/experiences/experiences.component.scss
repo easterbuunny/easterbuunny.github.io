@@ -1,0 +1,39 @@
+.timeline {
+  position: relative;
+  padding-left: 2rem;
+  border-left: 3px solid #dee2e6;
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 2rem;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.timeline-marker {
+  position: absolute;
+  left: -2.5rem;
+  top: 0.5rem;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background-color: #212529;
+  border: 3px solid #fff;
+  box-shadow: 0 0 0 3px #dee2e6;
+}
+
+.timeline-card {
+  transition: transform 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1) !important;
+  }
+}
+
+.card-text {
+  white-space: pre-line;
+}
