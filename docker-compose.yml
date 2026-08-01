@@ -2,6 +2,8 @@ services:
   backend-api:
     build: ./backend
     container_name: java-api
+    environment:
+      - SPRING_PROFILES_ACTIVE=dev
     ports:
       - "8000:8000"
     networks:
