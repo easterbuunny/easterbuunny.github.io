@@ -36,7 +36,7 @@
               [ngClass]="activeEndpoint.method === 'GET' ? 'text-success' : 'text-warning'">
               {{ activeEndpoint.method }}
             </span>
-            <input type="text" class="form-control" [value]="'http://localhost:8080' + activeEndpoint.url" readonly>
+            <input type="text" class="form-control" [value]="'http://localhost:8000' + activeEndpoint.url" readonly>
             <button class="btn btn-dark" [disabled]="isLoading" (click)="sendRequest()">
               @if (isLoading){
               <span class="spinner-border spinner-border-sm me-2" role="status"></span>
@@ -57,7 +57,7 @@
               <div class="d-flex justify-content-between align-items-end mb-2">
                 <span class="fw-bold">Réponse du serveur :</span>
                 @if (isLoading) {
-                <span class="text-muted fst-italic">En attente de localhost:8080...</span>
+                <span class="text-muted fst-italic">En attente de localhost:8000...</span>
                 } @else if (jsonResponse) {
                 <pre class="mb-0" [ngClass]="isDarkMode ? 'text-success' : ''">{{ jsonResponse | json }}</pre>
                 } @else {

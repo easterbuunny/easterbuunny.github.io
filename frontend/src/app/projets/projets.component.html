@@ -57,6 +57,8 @@
 
       <app-api-simulator [projet]="projetActif"></app-api-simulator>
 
+      } @else if (projetActif.id === 3) {
+        <app-plomberie-game [projet]="projetActif"></app-plomberie-game>
       }
       @else {
       <div class="alert alert-info text-center py-5">

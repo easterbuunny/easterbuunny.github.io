@@ -21,7 +21,7 @@ build:
 run:
 	@echo "=== Lancement Local ==="
 	@echo "Démarrage du Backend (en arrière-plan)..."
-	java -jar $(BACKEND_JAR) &
+	java -jar $(BACKEND_JAR) --server.port=8080 &
 	@echo "Démarrage du Frontend..."
 	cd frontend && ng serve
 
