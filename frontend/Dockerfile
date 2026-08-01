@@ -9,7 +9,7 @@ RUN npm config set fetch-retries 5 && \
 COPY package*.json ./
 RUN npm install --legacy-peer-deps --no-audit
 COPY . .
-RUN npm run build -- --configuration production
+RUN npm run build -- --configuration development
 
 RUN ls -R /app/dist
 # Étape 2 : Serveur de production Nginx
