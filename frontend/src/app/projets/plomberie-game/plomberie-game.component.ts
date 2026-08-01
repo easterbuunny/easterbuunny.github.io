@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { Projet } from '../../models/projet.model';
 
 @Component({
   selector: 'app-plomberie-game',
@@ -8,11 +9,5 @@ import { Component, Input } from '@angular/core';
 })
 export class PlomberieGameComponent {
   @Input({ required: true }) projet!: Projet;
-  isDarkMode = false;
-  isLoading = false;
-
-    toggleTheme() {
-    this.isDarkMode = !this.isDarkMode;
-  }
 
 }

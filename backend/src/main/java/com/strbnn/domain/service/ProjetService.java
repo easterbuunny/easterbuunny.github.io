@@ -31,10 +31,17 @@ public class ProjetService {
                         3L,
                         "Projet Interface Graphique",
                         "Projet universitaire Java...",
-                        Arrays.asList("Java", "Swing", "MySQL", "Cheerpj"),
+                        Arrays.asList("Java", "Swing"),
                         "desktop",
-                        "universite", "https://github.com/easterbuunny/projet_interfaces_graphiques"),
-                new ProjetDTO(4L, "Wordle", "Le jeu wordle en anglais", Arrays.asList("C#"), "backend", "personel",
+                        "universite",
+                        "https://github.com/easterbuunny/projet_interfaces_graphiques"),
+                new ProjetDTO(
+                        4L,
+                        "Wordle",
+                        "Le jeu wordle en anglais",
+                        Arrays.asList("C#"),
+                        "backend",
+                        "personel",
                         "https://github.com/easterbuunny/Wordle"));
     }
 }
