@@ -2,11 +2,16 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { ProjetsComponent } from './projets/projets.component';
+import { ExperiencesComponent } from './experiences/experiences.component';
+import { ContactComponent } from './contact/contact.component';
+
 
 export const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
   { path: 'projets', component: ProjetsComponent },
+  { path: 'experiences', component: ExperiencesComponent },
+  { path: 'contact', component: ContactComponent }
   // { path: '**', redirectTo: '/home' } <-- Commentez cette ligne
 ];
 @NgModule({

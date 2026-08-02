@@ -2,11 +2,14 @@ import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { NavbarComponent } from './layout/navbar/navbar.component';
+import { ProjetsComponent } from './projets/projets.component';
+import { ExperiencesComponent } from './experiences/experiences.component';
+import { ContactComponent } from './contact/contact.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, HomeComponent, NavbarComponent],
+  imports: [RouterOutlet, HomeComponent, NavbarComponent, ProjetsComponent, ExperiencesComponent, ContactComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })

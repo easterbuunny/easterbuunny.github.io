@@ -14,7 +14,7 @@ export class ProjetService {
   constructor(private http : HttpClient) { }
 
   getProjets(): Observable<Projet[]> {
-    console.log("API  : ",this.apiUrl)
+    console.log("API projet : ",this.apiUrl)
     return this.http.get<Projet[]>(this.apiUrl);
   }
 }

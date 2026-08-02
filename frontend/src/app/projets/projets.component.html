@@ -38,31 +38,29 @@
   }
   @else {
   <button class="btn btn-secondary mb-4 shadow-sm" (click)="stopDemo()">&larr; Retour</button>
+  <a type="button" class="btn btn-secondary mb-4 ms-5 shadow-sm" [href]="projetActif.sourceUrl">&rarr; Code Source</a>
   <div class="card shadow border-0">
     <div class="card-header bg-dark text-white py-3">
-      <h4 class="mb-0">Laboratoire interactif : {{ projetActif.titre }}</h4>
+      <h4 class="mb-0">{{ projetActif.titre }}</h4>
       <p class="card-text">{{ projetActif.description }}</p>
       <div class="mb-3">
         @for (tech of projetActif.technologies; track tech) {
         <span class="badge bg-secondary me-1 mb-1">{{ tech }}</span>
         }
       </div>
-
     </div>
     <div class="card-body p-4">
 
       @if (projetActif.id === 2) {
       <app-automate-simulator [projet]="projetActif"></app-automate-simulator>
-      }@else if (projetActif.id === 1) {
-
-      <app-api-simulator [projet]="projetActif"></app-api-simulator>
-
+      } @else if (projetActif.id === 3) {
+        <app-plomberie-game [projet]="projetActif"></app-plomberie-game>
       }
+      
       @else {
       <div class="alert alert-info text-center py-5">
         <i class="fs-1 mb-3">🛠️</i>
         <h5>En cours de construction</h5>
-        <p class="mb-0">La version interactive de l'API JavaEE arrivera bientôt !</p>
       </div>
       }
 

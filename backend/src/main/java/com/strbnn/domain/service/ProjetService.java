@@ -9,32 +9,47 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class ProjetService {
-    public List<ProjetDTO> getAllProjets() {
-        return Arrays.asList(
-                new ProjetDTO(
-                        1L,
-                        "Gestionnaire de projet",
-                        "Exemple 1 : Conception d'une API REST pour et créer des requetes et chercher des objets sur le sites.",
-                        Arrays.asList("Angular", "TypeScript", "Java"),
-                        "backend",
-                        "example",
-                        ""),
-                new ProjetDTO(
-                        2L,
-                        "Simulateur d'Automates",
-                        "Exemple 2 : Interface visuelle permettant de dessiner et tester des machines à états finis.",
-                        Arrays.asList("Angular", "TypeScript", "Bootstrap"),
-                        "frontend",
-                        "example",
-                        ""),
-                new ProjetDTO(
-                        3L,
-                        "Projet Interface Graphique",
-                        "Projet universitaire Java...",
-                        Arrays.asList("Java", "Swing", "MySQL", "Cheerpj"),
-                        "desktop",
-                        "universite", "https://github.com/easterbuunny/projet_interfaces_graphiques"),
-                new ProjetDTO(4L, "Wordle", "Le jeu wordle en anglais", Arrays.asList("C#"), "backend", "personel",
-                        "https://github.com/easterbuunny/Wordle"));
-    }
+        public List<ProjetDTO> getAllProjets() {
+                return Arrays.asList(
+                                new ProjetDTO(
+                                                2L,
+                                                "Simulateur d'Automates",
+                                                "Exemple 2 : Interface visuelle permettant de dessiner et tester des machines à états finis.",
+                                                Arrays.asList("Angular", "TypeScript", "Bootstrap"),
+                                                "frontend",
+                                                "example",
+                                                ""),
+                                new ProjetDTO(
+                                                3L,
+                                                "Projet Interface Graphique",
+                                                "Projet universitaire Java...",
+                                                Arrays.asList("Java", "Swing"),
+                                                "desktop",
+                                                "universite",
+                                                "https://github.com/easterbuunny/projet_interfaces_graphiques"),
+                                new ProjetDTO(
+                                                4L,
+                                                "Wordle",
+                                                "Le jeu wordle en anglais",
+                                                Arrays.asList("C#"),
+                                                "desktop",
+                                                "personel",
+                                                "https://github.com/easterbuunny/Wordle"),
+                                new ProjetDTO(
+                                                5L,
+                                                "Projet LOA",
+                                                "Jeu interaction terminal en C++",
+                                                Arrays.asList("C++"),
+                                                "backend",
+                                                "universite",
+                                                "https://github.com/easterbuunny/Projet_LOA"),
+                                new ProjetDTO(
+                                                6L,
+                                                "Projet Objet Conception Avancée",
+                                                "Site web d'assurance pour entrainer la communiquer et le cowork avec les autres membres de l'équipe",
+                                                Arrays.asList("JavaScript", "TypeScript", "EJS"),
+                                                "fullstack",
+                                                "universite",
+                                                "https://github.com/easterbuunny/poca_Scam"));
+        }
 }
