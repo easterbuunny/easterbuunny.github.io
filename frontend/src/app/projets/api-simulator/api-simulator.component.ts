@@ -23,7 +23,6 @@ export class ApiSimulatorComponent {
     { method: 'GET', url: '/api/v1/projetUniversite', desc: 'Lister les projets université' },
     { method: 'GET', url: '/api/v1/projetPersonnel', desc: 'Lister les projets personels' },
     { method: 'GET', url: '/api/v1/projetExample', desc: 'Lister les exemples du tutoriel' },
-    { method: 'POST', url: '/api/v1/emprunts', desc: 'Créer un nouvel emprunt' }
   ]
 
   activeEndpoint = this.endpoints[0];
